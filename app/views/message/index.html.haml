@@ -1,0 +1,49 @@
+%body
+  .notification
+  .chat_side
+    .chat_side_user
+      .chat_side_user_content
+        .chat_side_user_name
+          XXXXXX
+          %a.chat_side_user_edit_user{:href => "/users/edit"}
+            %i.fa.fa-cog
+          %a.chat_side_user_new_group{:href => "/groups/new"}
+            %i.fa.fa-pencil-square-o
+    .chat_side_groups
+      .chat_side_groups_list
+        %a{:href => "/groups/1677/messages"}
+          .chat_side_group
+            .chat_side_group_name
+              group1
+            .chat_side_group_message
+              Hello
+  .chat_main
+    .chat_main_header
+      .chat_main_header_group_clearfix
+        .chat_main_header_group_name
+          group1
+        %a.chat_main_header_group_edit_btn{:href => "/groups/1677/edit"}
+          Edit
+        .chat_main_header_members
+          MEMBER:
+          %i
+            XXXXXX
+    .chat_main_body
+      .chat_main_body_messages_list
+        .chat_main_message.clearfix{:data_id => ""}
+          .chat_main_message_name
+            XXXXXX
+          .chat_main_message_time
+            2018/11/16/16:30:20
+          .chat_main_message_body
+            00000000
+    .chat_main_footer
+      %form#new_message.chat_main_footer_form{"accept-charset" => "UTF-8", :action => "/groups/1677/messages", :enctype => "multipart/form_data", :method => "post"}
+        %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+        %input{:name => "authenticity_token", :type => "hidden", :value => "py3t6UMZPn7RNQXkBDmI6QK1Pl2A5sJttaWaJ4VtwdOO9Nr3lmOrrItqfCT+sFTS50yH0NFxBRh8MhzB57CWQg=="}/
+        .chat_main_footer_body
+          %input#message_body.message{:name => "message[body]", :placeholder => "type a message", :type => "text"}/
+          %label.chat_file{:for => "message_image"}
+            %input#message_image.image{:name => "message[image]", :type => "file", :style => "display:none"}/
+            %i.fa.fa-image
+        %input.submit{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/

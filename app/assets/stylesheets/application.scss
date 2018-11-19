@@ -1,29 +1,3 @@
 @import "./reset";
+@import "./index";
 @import " font-awesome ";
-
-.header{
-  background: #AAAAAA;
-  height: 75px;
-  width: 100%;
-  .header_left{
-    background: #253141;
-    height: 100%;
-    width: 300px;
-  }
-}
-
-.contents{
-  background: #AAAAAA;
-  .content_left{
-    background: #2f3e51;
-    width: 300px;
-    float: left;
-  }
-  .content_right{
-    width: calc(100vw - 300px);
-    float: right;
-    .content_main{
-
-    }
-  }
-}
