@@ -1,6 +1,3 @@
-// html{
-//   height: 100%;
-// }
 html,body{
   height: 100%;
   .chat_side{
@@ -8,37 +5,39 @@ html,body{
     height: 100%;
     width: 300px;
     float: left;
-    .chat_side_user{
+    &_user{
       background: #253141;
       height: 100px;
-      .chat_side_user_content{
+      &_content{
         padding: 35px 20px 35px 20px;
         .chat_side_user_name{
           font-size: 16px;
           font-weight: bold;
           color:#FFFFFF;
+          float: left;
+          padding: 0 100px 0 0 ;
         }
-        .chat_side_user_new_group{
-          color: #FFFFFF;
-          float: right;
-        }
-        .chat_side_user_edit_user{
-          color: #FFFFFF;
-          float: right;
-          padding: 0 0 0  10px;
+        .chat_side_btn{
+          .list{
+            float: left;
+            padding: 0 0 0  10px;
+            .icon{
+              color: #FFFFFF;
+            }
+          }
         }
       }
     }
-    .chat_side_groups{
+    &_groups{
       padding: 0 20px 0 20px;
-      .chat_side_groups_list{
+      &_list{
         .chat_side_group{
-          .chat_side_group_name{
+          &_name{
             font-size: 15px;
             color:#FFFFFF;
             padding: 20px 0 0 0;
           }
-          .chat_side_group_message{
+          &_message{
             font-size: 11px;
             color: #FFFFFF;
             padding: 5px 0 40px 0;
@@ -49,25 +48,18 @@ html,body{
   }
 
   .chat_main{
-    // background: #AAAAAA;
     float: right;
     width: calc(100vw - 300px);
     height: 100%;
     position: relative;
-    .chat_main_header{
+    &_header{
       background: white;
-      // position: sticky;
       height: 100px;
       border-bottom: solid thin #eeeeee;
       top: 0;
-      .chat_main_header_group_clearfix{
+      &_group_clearfix{
         padding: 0 40px 0 40px;
         line-height: center;
-        // position: absolute;
-        // top: 50%;
-        // -ms-transform: translateY(-50%);
-        // -webkit-transform : translateY(-50%);
-        // transform : translateY(-50%);
         .chat_main_header_group_name{
           font-size: 20px;
           color: #333333;
@@ -90,26 +82,26 @@ html,body{
         }
       }
     }
-    .chat_main_body{
+    &_body{
       background: white;
       padding: 46px 0 0 0;
       width: 100%;
-      .chat_main_body_messages_list{
+      &_message{
         padding: 0 0 40px 0;
-        .chat_main_message.clearfix{
+        &.clearfix{
           padding: 0 40px 0 40px;
-          .chat_main_message_name{
+          .chat_main_body_message_name{
             font-size: 16px;
             font-weight: bold;
             color: #434A54;
             float: left;
             padding: 0 10px 0 0;
           }
-          .chat_main_message_time{
+          .chat_main_body_message_time{
             font-size: 12px;
             color: #999999;
           }
-          .chat_main_message_body{
+          .chat_main_body_message_body{
             font-size: 14px;
             color: #434A54;
             clear: both;
@@ -117,19 +109,19 @@ html,body{
         }
       }
     }
-    .chat_main_footer{
+    &_footer{
       background: #AAAAAA;
       height: 90px;
       position: absolute;
       bottom: 0;
-      width: 100%;
-      .chat_main_footer_form{
+      width: calc(100vw - 300px);
+      &_form{
         padding: 20px 40px 20px 40px;
-        .chat_main_footer_body{
+        &_body{
           position: relative;
           float: left;
           .message{
-            width: 930px;
+            width: 60vw;
             height: 50px;
           }
           .chat_file{
@@ -155,19 +147,3 @@ html,body{
     }
   }
 }
-
-
-
-
-
-
-// .chat_main_footer
-//       %form#new_message.chat_main_footer_form{"accept-charset" => "UTF-8", :action => "/groups/1677/messages", :enctype => "multipart/form_data", :method => "post"}
-//         %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-//         %input{:name => "authenticity_token", :type => "hidden", :value => "py3t6UMZPn7RNQXkBDmI6QK1Pl2A5sJttaWaJ4VtwdOO9Nr3lmOrrItqfCT+sFTS50yH0NFxBRh8MhzB57CWQg=="}/
-//         .chat-main__footer-body
-//           %input#message_body.message{:name => "message[body]", :placeholder => "type a message", :type => "text"}/
-//           %label.chat-file{:for => "message_image"}
-//             %input#message_image.image{:name => "message[image]", :type => "file"}/
-//             %i.fa.fa-image
-//         %input.submit{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
