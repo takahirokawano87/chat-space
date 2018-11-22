@@ -69,8 +69,9 @@ html,body{
         .chat_main_header_group_edit_btn{
           float: right;
           margin: 20px 0 0 0;
-          border: solid thin #00bfff;
+          border: solid medium #00bfff;
           padding: 10px 20px 10px 20px;
+          color: #00bfff;
           .chat_main_header_group_edit_btn a{
           }
         }
@@ -115,33 +116,44 @@ html,body{
       position: absolute;
       bottom: 0;
       width: calc(100vw - 300px);
-      &_form{
-        padding: 20px 40px 20px 40px;
-        &_body{
-          position: relative;
-          float: left;
-          .message{
-            width: 60vw;
+      .form{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        .new_message{
+          padding: 0 40px 0 40px;
+          display: flex;
+          align-items: center;
+          .form__message{
             height: 50px;
+            width: 80vw;
+            float: left;
+            position: relative;
           }
-          .chat_file{
+          .form__mask{
             position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            .image{
-            }
-            .fa fa-image{
+            right: 15%;
+            .form__mask__image{
+              .icon{
+              }
+              .hidden{
+                display: none;
+              }
             }
           }
-        }
-        .submit{
-          color: white;
-          height: 50px;
-          padding: 10px 30px 10px 30px;
-          border: solid thin #00bfff;
-          background: #00bfff;
-          margin: 0 0 0 15px;
+          .form__btn{
+            float: right;
+            .form__submit{
+              color: white;
+              background-color: #38AEF0;
+              border: solid thin #38AEF0;
+              height: 50px;
+              padding: 10px 30px 10px 30px;
+              margin: 0 0 0 15px;
+            }
+          }
         }
       }
     }
