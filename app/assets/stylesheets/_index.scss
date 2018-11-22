@@ -1,0 +1,149 @@
+html,body{
+  height: 100%;
+  .chat_side{
+    background: #2f3e51;
+    height: 100%;
+    width: 300px;
+    float: left;
+    &_user{
+      background: #253141;
+      height: 100px;
+      &_content{
+        padding: 35px 20px 35px 20px;
+        .chat_side_user_name{
+          font-size: 16px;
+          font-weight: bold;
+          color:#FFFFFF;
+          float: left;
+          padding: 0 100px 0 0 ;
+        }
+        .chat_side_btn{
+          .list{
+            float: left;
+            padding: 0 0 0  10px;
+            .icon{
+              color: #FFFFFF;
+            }
+          }
+        }
+      }
+    }
+    &_groups{
+      padding: 0 20px 0 20px;
+      &_list{
+        .chat_side_group{
+          &_name{
+            font-size: 15px;
+            color:#FFFFFF;
+            padding: 20px 0 0 0;
+          }
+          &_message{
+            font-size: 11px;
+            color: #FFFFFF;
+            padding: 5px 0 40px 0;
+          }
+        }
+      }
+    }
+  }
+
+  .chat_main{
+    float: right;
+    width: calc(100vw - 300px);
+    height: 100%;
+    position: relative;
+    &_header{
+      background: white;
+      height: 100px;
+      border-bottom: solid thin #eeeeee;
+      top: 0;
+      &_group_clearfix{
+        padding: 0 40px 0 40px;
+        line-height: center;
+        .chat_main_header_group_name{
+          font-size: 20px;
+          color: #333333;
+          padding: 35px 0 0 0;
+          float: left;
+        }
+        .chat_main_header_group_edit_btn{
+          float: right;
+          margin: 20px 0 0 0;
+          border: solid thin #00bfff;
+          padding: 10px 20px 10px 20px;
+          .chat_main_header_group_edit_btn a{
+          }
+        }
+        .chat_main_header_members{
+          font-size: 12px;
+          color: #999999;
+          padding: 15px 0 0 0 ;
+          clear: both;
+        }
+      }
+    }
+    &_body{
+      background: white;
+      padding: 46px 0 0 0;
+      width: 100%;
+      &_message{
+        padding: 0 0 40px 0;
+        &.clearfix{
+          padding: 0 40px 0 40px;
+          .chat_main_body_message_name{
+            font-size: 16px;
+            font-weight: bold;
+            color: #434A54;
+            float: left;
+            padding: 0 10px 0 0;
+          }
+          .chat_main_body_message_time{
+            font-size: 12px;
+            color: #999999;
+          }
+          .chat_main_body_message_body{
+            font-size: 14px;
+            color: #434A54;
+            clear: both;
+          }
+        }
+      }
+    }
+    &_footer{
+      background: #AAAAAA;
+      height: 90px;
+      position: absolute;
+      bottom: 0;
+      width: calc(100vw - 300px);
+      &_form{
+        padding: 20px 40px 20px 40px;
+        &_body{
+          position: relative;
+          float: left;
+          .message{
+            width: 60vw;
+            height: 50px;
+          }
+          .chat_file{
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            .image{
+            }
+            .fa fa-image{
+            }
+          }
+        }
+        .submit{
+          color: white;
+          height: 50px;
+          padding: 10px 30px 10px 30px;
+          border: solid thin #00bfff;
+          background: #00bfff;
+          margin: 0 0 0 15px;
+        }
+      }
+    }
+  }
+}

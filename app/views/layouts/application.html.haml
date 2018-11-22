@@ -6,47 +6,6 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-
-%header
-  .header
-    .header_left
-  .contents
-    .content_left
-      .content_group
-    .content_right
-      .content_main
-      .content_bottom
-
-
-
-
-
-  / %body
-  /   %header
-  /   .contents
-  /     .content__left
-  /       .content__name
-  /         .user_name
-  /         =link_to  do
-  /           %i.far.fa-edit
-  /         =link_to  do
-  /           %i.fas.fa-cog
-  /       .content__group
-  /         .group_name
-  /         .group_message
-  /       .top-content
-  /         .group_name_main
-  /         %input{:type => "submit", :value => "Edit"}/
-  /       .main__content
-  /         .group_message_main
-  /           .user_name_main
-  /           .created_at
-  /           .message
-  /       .footer
-  /         %textarea
-  /           %i.far.fa-image
-  /         %input{:type => "submit", :value => "Send"}/
-  /   = yield
-%header
-  .header
-  .header_left
+  %body
+    = render 'layouts/notifications'
+    = yield
