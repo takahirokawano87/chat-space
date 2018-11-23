@@ -23,13 +23,13 @@
   .chat_main_header
     .chat_main_header_group_clearfix
       .chat_main_header_group_name
-        group1
-      %a.chat_main_header_group_edit_btn{:href => "/groups/1677/edit"}
+        = @group.name
+      %a.chat_main_header_group_edit_btn{:href => "edit"}
         Edit
       .chat_main_header_members
         MEMBER:
         %i
-          XXXXXX
+        = @group.group_users.name
 
   .chat_main_body
     = render @messages
