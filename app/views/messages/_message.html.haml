@@ -1,0 +1,11 @@
+.chat_main_body_message
+  .chat_main_body_message.clearfix{:data_id => ""}
+    .chat_main_body_message_name
+      = message.user.name
+    .chat_main_body_message_time
+      = message.created_at
+    .chat_main_body_message_body
+      - if message.content.present?
+        %p.lower-message__content
+          = message.content
+      = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
