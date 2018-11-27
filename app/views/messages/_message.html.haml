@@ -1,5 +1,5 @@
 .chat_main_body_message
-  .chat_main_body_message.clearfix{:data_id => ""}
+  .chat_main_body_message.clearfix{ "data-message-id": "#{message.id}"}
     .chat_main_body_message_name
       = message.user.name
     .chat_main_body_message_time
