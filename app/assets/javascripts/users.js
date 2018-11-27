@@ -1,6 +1,6 @@
 $(function(){
   var search_list = $("#user-search-result");
-  var member_list = $("#aaa");
+  var member_list = $("#chat_member");
 
   function appendProduct(user){
     var html = `<div class="chat-group-user clearfix">
