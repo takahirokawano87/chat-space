@@ -31,6 +31,8 @@
         %i
         = @group.group_users.name
 
+
+
   .chat_main_body
     = render @messages
 
@@ -44,3 +46,5 @@
             = f.file_field :image, class: 'hidden'
         .form__btn
           = f.submit 'Send', class: 'form__submit'
+
+
