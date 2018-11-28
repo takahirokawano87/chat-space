@@ -1,7 +1,6 @@
 $(document).on('turbolinks:load', function() {
   $(function(){
-
-
+    // メッセージ投稿非同期通信化時のHTML
     function buildHTML(message){
       var image = message.image ? `<img src="${message.image}">` : "";
       var html = `<div class="chat_main_body_message">
@@ -22,11 +21,8 @@ $(document).on('turbolinks:load', function() {
                   </div>`;
       return html
     }
-
-
-
+    // メッセージ自動更新時のHTML
     function buildMESSAGE(message){
-      console.log(message)
       var image = message.image ? `<img src="${message.image}">` : "";
       var html = `<div class="chat_main_body_message" data-message-id="${message.id}">
                     <div class="chat_main_body_message clearfix" data_id="">
@@ -46,42 +42,36 @@ $(document).on('turbolinks:load', function() {
                   </div>`;
       return html
     }
-
-
-
-
-var interval = setInterval(function(){
-        if(window.location.href.match(/\/groups\/\d+\/messages/)){
-      $.ajax({
-        url: location.href,
-        dataType: 'json'
-      })
-      .done(function(json){
-        var id = $('.chat_main_body_message:last').data('messageId');
-        var insertHTML = '';
-        json.messages.forEach(function(message){
-          if(message.id > id){
-            insertHTML += buildMESSAGE(message);
-          }
+    // メッセージ自動更新の挙動
+    var interval = setInterval(function(){
+      if(window.location.href.match(/\/groups\/\d+\/messages/)){
+        $.ajax({
+          url: location.href,
+          dataType: 'json'
+        })
+        .done(function(json){
+          var id = $('.chat_main_body_message:last').data('messageId');
+          var insertHTML = '';
+          json.messages.forEach(function(message){
+            if(message.id > id){
+              insertHTML += buildMESSAGE(message);
+            }
+          });
+          $('.chat_main_body').append(insertHTML);
+        })
+        .fail(function(json){
+          alart('自動更新に失敗しました');
         });
-        $('.chat_main_body').append(insertHTML);
-      })
-      .fail(function(json){
-        alart('自動更新に失敗しました');
-      });
-    } else{
-      clearInterval(interval);
-    }}, 5000);
-
-
-
-
+      }
+      else{
+        clearInterval(interval);
+      }
+    }, 5000);
+    // メッセージ投稿後、最新メッセージへのスクロール
     function scroll() {
       $('.chat_main_body').animate({scrollTop: $('.chat_main_body')[0].scrollHeight});
     }
-
-
-
+    // メッセージ投稿非同期通信化の挙動
     $('#new_message').on('submit', function(e){
       e.preventDefault();
       var formData = new FormData(this);
@@ -108,8 +98,5 @@ var interval = setInterval(function(){
         $(".form__submit").removeAttr("disabled");
       })
     })
-
-
-
   });
 })
