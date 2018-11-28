@@ -4,7 +4,7 @@ $(document).on('turbolinks:load', function() {
     function buildHTML(message){
       var image = message.image ? `<img src="${message.image}">` : "";
       var html = `<div class="chat_main_body_message">
-                    <div class="chat_main_body_message clearfix" data_id="">
+                    <div class="chat_main_body_message clearfix" data-message-id="${message.id}">
                       <div class="chat_main_body_message_name">
                         ${message.name}
                       </div>
@@ -23,10 +23,9 @@ $(document).on('turbolinks:load', function() {
     }
     // メッセージ自動更新時のHTML
     function buildMessage(message){
-      console.log(message)
       var image = message.image ? `<img src="${message.image}">` : "";
-      var html = `<div class="chat_main_body_message" data-message-id="${message.id}">
-                    <div class="chat_main_body_message clearfix" data_id="">
+      var html = `<div class="chat_main_body_message">
+                    <div class="chat_main_body_message clearfix" data-message-id="${message.id}">
                       <div class="chat_main_body_message_name">
                         ${message.name}
                       </div>
@@ -45,23 +44,24 @@ $(document).on('turbolinks:load', function() {
     }
     // メッセージ自動更新の挙動
     var interval = setInterval(function(){
+      var message_id = $('.chat_main_body_message:last').data('messageId');
       if(window.location.href.match(/\/groups\/\d+\/messages/)){
         $.ajax({
           url: location.href,
+          type: 'GET',
+          data: {message: {id: message_id}},
           dataType: 'json'
         })
         .done(function(json){
-          var id = $('.chat_main_body_message:last').data('messageId');
           var insertHTML = '';
-          json.messages.forEach(function(message){
-            if(message.id > id){
-              insertHTML += buildMessage(message);
-            }
+          json.new_message.forEach(function(message){
+            insertHTML += buildMessage(message);
           });
           $('.chat_main_body').append(insertHTML);
+          console.log(insertHTML)
         })
         .fail(function(json){
-          alart('自動更新に失敗しました');
+          alert('自動更新に失敗しました');
         });
       }
       else{
