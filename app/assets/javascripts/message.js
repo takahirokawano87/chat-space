@@ -22,7 +22,8 @@ $(document).on('turbolinks:load', function() {
       return html
     }
     // メッセージ自動更新時のHTML
-    function buildMESSAGE(message){
+    function buildMessage(message){
+      console.log(message)
       var image = message.image ? `<img src="${message.image}">` : "";
       var html = `<div class="chat_main_body_message" data-message-id="${message.id}">
                     <div class="chat_main_body_message clearfix" data_id="">
@@ -54,7 +55,7 @@ $(document).on('turbolinks:load', function() {
           var insertHTML = '';
           json.messages.forEach(function(message){
             if(message.id > id){
-              insertHTML += buildMESSAGE(message);
+              insertHTML += buildMessage(message);
             }
           });
           $('.chat_main_body').append(insertHTML);
