@@ -58,7 +58,6 @@ $(document).on('turbolinks:load', function() {
             insertHTML += buildMessage(message);
           });
           $('.chat_main_body').append(insertHTML);
-          console.log(insertHTML)
         })
         .fail(function(json){
           alert('自動更新に失敗しました');
@@ -88,7 +87,7 @@ $(document).on('turbolinks:load', function() {
       .done(function(data){
         var html = buildHTML(data);
         $('.chat_main_body').append(html)
-        $('.form__message').val('')
+        $("form")[0].reset();
         $('#message_image').val('')
         scroll()
       })
