@@ -45,6 +45,7 @@ $(document).on('turbolinks:load', function() {
     // メッセージ自動更新の挙動
     var interval = setInterval(function(){
       var message_id = $('.chat_main_body_message:last').data('messageId');
+      console.log(message_id)
       if(window.location.href.match(/\/groups\/\d+\/messages/)){
         $.ajax({
           url: location.href,
@@ -53,6 +54,7 @@ $(document).on('turbolinks:load', function() {
           dataType: 'json'
         })
         .done(function(json){
+          console.log(json)
           var insertHTML = '';
           json.new_message.forEach(function(message){
             insertHTML += buildMessage(message);
