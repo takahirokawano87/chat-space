@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+// $(document).on('turbolinks:load', function() {
   $(function(){
     // メッセージ投稿非同期通信化時のHTML
     function buildHTML(message){
@@ -70,7 +70,7 @@ $(document).on('turbolinks:load', function() {
       }
     }, 5000);
     // メッセージ投稿後、最新メッセージへのスクロール
-    function scroll() {
+    function scroll(){
       $('.chat_main_body').animate({scrollTop: $('.chat_main_body')[0].scrollHeight});
     }
     // メッセージ投稿非同期通信化の挙動
@@ -101,4 +101,4 @@ $(document).on('turbolinks:load', function() {
       })
     })
   });
-})
+// })
