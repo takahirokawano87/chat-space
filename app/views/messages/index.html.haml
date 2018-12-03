@@ -30,7 +30,8 @@
       .chat_main_header_members
         MEMBER:
         %i
-        = @group.group_users.name
+        - @group.users.each do |user|
+          =user.name
 
 
 
