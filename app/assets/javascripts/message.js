@@ -30,7 +30,7 @@
                         ${message.name}
                       </div>
                       <div class="chat_main_body_message_time">
-                        ${message.date}
+                        ${message.created_at}
                       </div>
                       <div class="chat_main_body_message_body">
                         <p class="lower-message__content">
@@ -43,6 +43,9 @@
       return html
     }
     // メッセージ自動更新の挙動
+    function scroll(){
+      $('.chat_main_body').animate({scrollTop: $('.chat_main_body')[0].scrollHeight});
+    }
     var interval = setInterval(function(){
       var message_id = $('.chat_main_body_message:last').data('messageId');
       if(window.location.href.match(/\/groups\/\d+\/messages/)){
@@ -58,6 +61,7 @@
             insertHTML += buildMessage(message);
           });
           $('.chat_main_body').append(insertHTML);
+          scroll()
         })
         .fail(function(json){
           alert('自動更新に失敗しました');
